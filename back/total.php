@@ -2,7 +2,7 @@
 					<p class="t cent botli">進站總人數管理</p>
 					<!-- <form method="post" target="back" action="?do=tii"> -->
 					<form method="post" action="/api/edit_total.php">
-						<table style="width='50%';margin:atuo;">
+						<table style="width:50%;margin:auto">
 							<tbody>
 								<tr class="yel">
 									<td width="50%">進站總人數管理</td>
