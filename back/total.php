@@ -8,7 +8,7 @@
 					<td width="50%">進站總人數管理</td>
 					<td width="50%">
 					
-					<!-- <input type="number" name="total" id="" value="<?= //$Total->find(1)['total']; ?>"></td> -->
+					<!-- <input type="number" name="total" id="" value="<? //=$Total->find(1)['total'];?>"></td> -->
 					
 					<!-- 因為要共用，所以需要增加一input隱藏欄位存入當前網頁名稱 -->
 					<input type="number" name="total" value="<?= $Total->find(1)['total']; ?>">
