@@ -14,29 +14,36 @@
 				<?php $rows = $Title->all();
 				foreach ($rows as $row) {
 				?>
-                    <td width="45%">
-						<img src="./img/<?= $row['img'];?>" alt="" style="width:300px;height:30px">
-					</td>
-                    <td width="23%"><input type="text" name="text[<?= $row['id'];?>]" value="<?= $row['text'];?>" style="width:90%"></td>
-                    <td width="7%"><input type="radio" name="sh" value="<?= $row['id'];?>"
-					 id=""></td>
-                    <td width="7%"><input type="checkbox" name="del[]" value="<?= $row['id'];?>"></td>
-                    <td>
-						<input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $id;?>&id=<?= $row['id'];?>')" value="更新圖片">
+				<tr>
+					<td width="45%">
+						<img src="./img/<?= $row['img']; ?>" alt="" style="width:300px;height:30px">
 					</td>
 
+					<td width="23%"><input type="text" name="text[<?= $row['id']; ?>]" value="<?= $row['text']; ?>" style="width:90%">
+					</td>
+
+					<td width="7%"><input type="radio" name="sh" value="<?= $row['id']; ?>" id="">
+					</td>
+
+					<td width="7%"><input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+					</td>
+
+					<td>
+						<input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $id; ?>&id=<?= $row['id']; ?>')" value="更新圖片">
+					</td>
+				</tr>
 				<?php
 				} ?>
 			</tbody>
 		</table>
-        <table style="margin-top:40px; width:70%;">
-            <tbody>
-                <tr>
-                    <input type="hidden" name="table" value="<?= $do; ?>">
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增網站標題圖片"></td>
-                    <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
-                </tr>
-            </tbody>
-        </table>
+		<table style="margin-top:40px; width:70%;">
+			<tbody>
+				<tr>
+					<input type="hidden" name="table" value="<?= $do; ?>">
+					<td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增網站標題圖片"></td>
+					<td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
+				</tr>
+			</tbody>
+		</table>
 	</form>
 </div>
