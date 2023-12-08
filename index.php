@@ -20,9 +20,16 @@
 		</div>
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
+
+<!-- 顯示標題圖片 php -->
+<?php
+$title=$Title->find(['sh'=>1]);
+?>
+<!-- 顯示標題圖片 php END -->
+
 	<div id="main">
 		<a title="" href="index.php">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div><!--標題-->
+			<div class="ti" style="background:url('./img/<?=$title['img'];?>'); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
