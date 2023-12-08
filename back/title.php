@@ -29,7 +29,7 @@
 					</td>
 
 					<td>
-						<input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $id; ?>&id=<?= $row['id']; ?>')" value="更新圖片">
+						<input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')" value="更新圖片">
 					</td>
 				</tr>
 				<?php
