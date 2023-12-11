@@ -6,8 +6,8 @@
 			<tbody>
 				<tr class="yel">
 
-					<td width="80%">帳號</td>
-					<td width="10%">密碼</td>
+					<td width="45%">帳號</td>
+					<td width="45%">密碼</td>
 					<td width="10%">刪除</td>
 				</tr>
 				<?php
@@ -21,7 +21,7 @@
 							<input type="hidden" name="id[]" value="<?= $row['id'] ?>">
 						</td>
 
-						<td><input type="checkbox" name="pw[]" value="<?= $row['pw']; ?>">
+						<td><input type="text" name="pw[]" value="<?= $row['pw']; ?>" style="width:90%">
 						</td>
 
 						<td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>">

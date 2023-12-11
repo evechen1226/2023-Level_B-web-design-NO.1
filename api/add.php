@@ -2,17 +2,17 @@
 include_once "db.php";
 
 
-switch($table){
-    case"admin";
-    unset($_POST['pw2']);
-    break;
-}
 
 $DB=${ucfirst($_POST['table'])};
 //假設為 do=?img
 //$DB = Img
 $table=$_POST['table'];
 //$table = img
+switch($table){
+    case"admin";
+    unset($_POST['pw2']);
+    break;
+}
 
 if(isset($_FILES['img']['tmp_name'])){
     move_uploaded_file($_FILES['img']['tmp_name'],"../img".$_FILES['img']['name']);
