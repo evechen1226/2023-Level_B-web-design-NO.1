@@ -13,8 +13,8 @@ if(isset($_FILES['img']['tmp_name'])){
 
 }
 $_POST['sh']=($table=='title')?0:1;
-unset($_POST['table']);
 
+unset($_POST['table']);
 $DB->save($_POST);
 
 to("../back.php?do=$table");
