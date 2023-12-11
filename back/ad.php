@@ -17,7 +17,7 @@
 				?>
 				<tr>
 
-					<td><input type="text" name="text[<?= $row['id']; ?>]" value="<?= $row['text']; ?>" style="width:90%">
+					<td><input type="text" name="text[]" value="<?= $row['text']; ?>" style="width:90%">
 				<input type="hidden" name="id[]" value="<?= $row['id']; ?>">	
 				</td>
 
