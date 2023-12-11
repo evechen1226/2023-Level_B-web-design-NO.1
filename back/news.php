@@ -1,12 +1,12 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-	<p class="t cent botli">動態文字廣告管理</p>
+	<p class="t cent botli">最新消息資料管理</p>
 	<!-- <form method="post" target="back" action="?do=tii"> -->
 	<form method="post" action="../api/edit.php">
 		<table width="100%">
 			<tbody>
 				<tr class="yel">
 
-					<td width="80%">態文字廣告</td>
+					<td width="80%">最新消息資料內容</td>
 					<td width="10%">顯示</td>
 					<td width="10%">刪除</td>
 				</tr>
@@ -18,7 +18,7 @@
 				$now = $_GET['p']??1;
 				$strat=($now-1)*$div;
 
-				$rows = $DB->all("limit $strart,$div");
+				$rows = $DB->all("limit $strat,$div");
 				foreach ($rows as $row) {
 				?>
 				<tr>
@@ -45,7 +45,7 @@
 				
 				$fontsize=($now==$i)?'24px':'16px';
 				
-				echo "<a href='?do=news$p=$i' style='font-size:$fontsize'>$i</a>";
+				echo "<a href='?do=news&p=$i' style='font-size:$fontsize'>$i</a>";
 			}
 			?>
 		</div>
