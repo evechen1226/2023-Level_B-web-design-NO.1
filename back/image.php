@@ -12,13 +12,24 @@
 					<td></td>
 				</tr>
 				<?php
-				$DB = ${ucfirst($do)};
-				$rows = $DB->all();
-				foreach ($rows as $row) {
-				?>
+				// $DB = ${ucfirst($do)};
+				// $rows = $DB->all();
+				// foreach ($rows as $row) {
+
+					$total = $DB->count();
+					$div = 3 ;
+					$pages = ceil($total/$div);
+
+					$now = $_GET['p']??1;
+					$strat=($now-1)*$div;
+	
+					$rows = $DB->all("limit $strat,$div");
+					foreach ($rows as $row) {
+					?>
+
 					<tr>
 						<td>
-							<img src="./img/<?= $row['img']; ?>" alt="" style="width:100px;height:80px;">
+							<img src="./img/<?= $row['img']; ?>" alt="" style="width:100px;height:68px;">
 						</td>
 						<input type="hidden" name="id[]" value="<?= $row['id']; ?>">
 						<td>
@@ -35,7 +46,33 @@
 				<?php
 				} ?>
 			</tbody>
+	
 		</table>
+
+		<div class="cent">
+			<?php
+			if($now>=1){
+				// echo "<a href='?do=image&p='".($now-1)."</a>";
+				$prev=$now-1;
+				echo "<a href='?do=image&p=$prev'> < </a>";
+			}
+			for ($i=1;$i<=$pages;$i++){
+				
+				$fontsize=($now==$i)?'24px':'16px';
+				
+				echo "<a href='?do=image&p=$i' style='font-size:$fontsize'>$i</a>";
+			}
+
+			if($now<$pages){
+
+				$next=$now+1;
+				echo "<a href='?do=image&p=$next'> > </a>";
+			}
+
+			?>
+		</div>
+
+
 		<table style="margin-top:40px; width:70%;">
 			<tbody>
 				<tr>
