@@ -1,5 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
 	<p class="t cent botli">動畫圖片管理</p>
+
 	<!-- <form method="post" target="back" action="?do=tii"> -->
 	<form method="post" action="../api/edit.php">
 		<table width="100%">
@@ -15,9 +16,8 @@
 				?>
 				<tr>
 					<td>
-						<img src="./img/<?= $row['img']; ?>" alt="" style="width:100px;height:80px">
+						<img src="./img/<?= $row['img']; ?>" alt="" style="width:100px;height:80px;">
 					</td>
-
 
 					<td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=($row['sh']==1)?'checked':'';?>>
 					</td>
