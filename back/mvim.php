@@ -18,8 +18,9 @@
 					<td>
 						<img src="./img/<?= $row['img']; ?>" alt="" style="width:100px;height:80px;">
 					</td>
-
-					<td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=($row['sh']==1)?'checked':'';?>>
+<input type="hidden" name="id[]" value="<?=$row['id'];?>">
+					<td>
+						<input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=($row['sh']==1)?'checked':'';?>>
 					</td>
 
 					<td> <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
