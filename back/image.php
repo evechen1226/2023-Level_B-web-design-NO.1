@@ -13,8 +13,8 @@
 				</tr>
 				<?php
 				$DB = ${ucfirst($do)};
-				//$rows = $Image->all();
-				foreach ($DB as $row) {
+				$rows = $DB->all();
+				foreach ($rows as $row) {
 				?>
 					<tr>
 						<td>
