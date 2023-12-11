@@ -4,7 +4,7 @@
     <table>
         <tr>
             <td>校園映像圖片</td>
-            <td><input type="file" name="img" id=""></td>
+            <td syle="text-aling:center;"><input type="file" name="img" id=""></td>
         </tr>
     </table>
     <div>

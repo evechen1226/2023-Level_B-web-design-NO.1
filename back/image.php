@@ -14,22 +14,22 @@
 				<?php $rows = $Image->all();
 				foreach ($rows as $row) {
 				?>
-				<tr>
-					<td>
-						<img src="./img/<?= $row['img']; ?>" alt="" style="width:100px;height:80px;">
-					</td>
-<input type="hidden" name="id[]" value="<?=$row['id'];?>">
-					<td>
-						<input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=($row['sh']==1)?'checked':'';?>>
-					</td>
+					<tr>
+						<td>
+							<img src="./img/<?= $row['img']; ?>" alt="" style="width:100px;height:80px;">
+						</td>
+						<input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+						<td>
+							<input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+						</td>
 
-					<td> <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
-					</td>
+						<td> <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+						</td>
 
-					<td>
-						<input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')" value="更新動畫圖片">
-					</td>
-				</tr>
+						<td>
+							<input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')" value="更新動畫圖片">
+						</td>
+					</tr>
 				<?php
 				} ?>
 			</tbody>
