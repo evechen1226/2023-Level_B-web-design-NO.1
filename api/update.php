@@ -12,6 +12,6 @@ if(isset($_FILES['img']['tmp_name'])){
     $row['img']=$_FILES['img']['name'];
 }
 
-$DB->save('$row');
+$DB->save($row);
 to("../back.php?do=$table");
 
