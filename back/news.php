@@ -10,51 +10,53 @@
 					<td width="10%">顯示</td>
 					<td width="10%">刪除</td>
 				</tr>
-				<?php 
+				<?php
 				$total = $DB->count();
-				$div = 5 ;
-				$pages = ceil($total/$div);
+				$div = 5;
+				$pages = ceil($total / $div);
 				//isset()
-				$now = $_GET['p']??1;
-				$strat=($now-1)*$div;
+				$now = $_GET['p'] ?? 1;
+				$strat = ($now - 1) * $div;
 
 				$rows = $DB->all("limit $strat,$div");
 				foreach ($rows as $row) {
 				?>
-				<tr>
+					<tr>
 
-					<td>
-					<textarea type="text" name="text[<?= $row['id']; ?>]" id="" style="width:90%;height:60px;"><?= $row['text']; ?></textarea>	
-					</td>
+						<td>
+							<textarea type="text" name="text[]" id="" style="width:90%;height:60px;"><?= $row['text']; ?></textarea>
+							<input type="hidden" name="id[]" value="<?=$row['id'];?>">
 
-					<td ><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=($row['sh']==1)?'checked':'';?>>
-					</td>
+						</td>
 
-					<td ><input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
-					</td>
+						<td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+						</td>
 
-				</tr>
+						<td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+						</td>
+
+					</tr>
 				<?php
 				} ?>
 			</tbody>
 		</table>
 		<div class="cent">
 			<?php
-			if($now>=1){
+			if ($now >= 1) {
 				// echo "<a href='?do=news&p='".($now-1)."</a>";
-				$prev=$now-1;
+				$prev = $now - 1;
 				echo "<a href='?do=news&p=$prev'> < </a>";
 			}
-			for ($i=1;$i<=$pages;$i++){
-				
-				$fontsize=($now==$i)?'24px':'16px';
-				
+			for ($i = 1; $i <= $pages; $i++) {
+
+				$fontsize = ($now == $i) ? '24px' : '16px';
+
 				echo "<a href='?do=news&p=$i' style='font-size:$fontsize'>$i</a>";
 			}
 
-			if($now<$pages){
+			if ($now < $pages) {
 
-				$nest=$now+1;
+				$next = $now + 1;
 				echo "<a href='?do=news&p=$next'> > </a>";
 			}
 
@@ -64,8 +66,13 @@
 			<tbody>
 				<tr>
 					<input type="hidden" name="table" value="<?= $do; ?>">
-					<td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增動態文字廣告"></td>
-					<td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
+					<td width="200px">
+						<input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增動態文字廣告">
+					</td>
+					<td class="cent">
+						<input type="submit" value="修改確定">
+						<input type="reset" value="重置">
+					</td>
 				</tr>
 			</tbody>
 		</table>
