@@ -1,7 +1,7 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
 	<p class="t cent botli">動態文字廣告管理</p>
 	<!-- <form method="post" target="back" action="?do=tii"> -->
-	<form method="post" action="?do=tii">
+	<form method="post" action="../api/edit.php">
 		<table width="100%">
 			<tbody>
 				<tr class="yel">
@@ -18,7 +18,7 @@
 					<td><input type="text" name="text[<?= $row['id']; ?>]" value="<?= $row['text']; ?>" style="width:90%">
 					</td>
 
-					<td ><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" id="">
+					<td ><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=($row['sh']==1)?'checked':'';?>>
 					</td>
 
 					<td ><input type="checkbox" name="del[]" value="<?= $row['id']; ?>">

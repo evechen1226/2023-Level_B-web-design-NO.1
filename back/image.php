@@ -11,8 +11,10 @@
 					<td width="10%">刪除</td>
 					<td></td>
 				</tr>
-				<?php $rows = $Image->all();
-				foreach ($rows as $row) {
+				<?php
+				$DB = ${ucfirst($do)};
+				//$rows = $Image->all();
+				foreach ($DB as $row) {
 				?>
 					<tr>
 						<td>
@@ -38,7 +40,8 @@
 			<tbody>
 				<tr>
 					<input type="hidden" name="table" value="<?= $do; ?>">
-					<td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增網站標題圖片"></td>
+					<td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增網站標題圖片">
+					</td>
 					<td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
 				</tr>
 			</tbody>
