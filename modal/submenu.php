@@ -12,15 +12,21 @@
         foreach ($subs as $sub) { ?>
 
             <tr>
-                <td><input type="text" name="text" value="<?=$sub['text']?>"></td>
-                <td><input type="text" name="href" value="<?=$sub['href']?>"></td>
-                <td><input type="checkbox" name="del[]" value="<?=$sub['id']?>">
-                <input type="hidden" name="id[]" value="">
+                <td><input type="text" name="text" value="<?= $sub['text'] ?>"></td>
+                <td><input type="text" name="href" value="<?= $sub['href'] ?>"></td>
+                <td><input type="checkbox" name="del[]" value="<?= $sub['id'] ?>">
+                    <input type="hidden" name="id[]" value="">
                 </td>
             </tr>
 
         <?php
         } ?>
+        <tr>
+            <td><input type="text" name="text[]" id=""></td>
+            <td><input type="text" name="href[]" id=""></td>
+
+        </tr>
+
     </table>
     <div>
         <input type="hidden" name="table" value="<?= $_GET['table']; ?>">
@@ -30,3 +36,14 @@
 
     </div>
 </form>
+<script>
+    function more() {
+        let item = 
+        `<tr>
+            <td><input type="text" name="text[]" id=""></td>
+            <td><input type="text" name="href[]" id=""></td>
+        </tr>`;
+}
+$("#xxx").apend(item);
+
+</script>
