@@ -1,3 +1,4 @@
+<?php include_once "../api/db.php"; ?>
 <h3>編輯次選單</h3>
 <hr>
 <form action="./api/submenu.php" method="post" enctype="multipart/form-data">
@@ -8,7 +9,7 @@
             <td>刪除</td>
         </tr>
         <?php
-        $subs = $menu->all(['menu_id' => $_GET['id']]);
+        $subs = $Menu->all(['menu_id' => $_GET['id']]);
         foreach ($subs as $sub) { ?>
 
             <tr>
@@ -38,12 +39,11 @@
 </form>
 <script>
     function more() {
-        let item = 
-        `<tr>
+        let item =
+            `<tr>
             <td><input type="text" name="text[]" id=""></td>
             <td><input type="text" name="href[]" id=""></td>
         </tr>`;
-}
-$("#xxx").apend(item);
-
+    }
+    $("#xxx").apend(item);
 </script>

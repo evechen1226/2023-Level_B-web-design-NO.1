@@ -13,13 +13,6 @@
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-1.9.1.min.js"></script>
 	<script src="./js/js.js"></script>
-	<style>
-.continer{
-	.text{
-		text-align: center;
-	}
-}
-	</style>
 </head>
 
 <body>
@@ -46,7 +39,7 @@ $title=$Title->find(['sh'=>1]);
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">後台管理選單</span>
-					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title">
+					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title.php">
 						<div class="mainmu">
 							網站標題管理 </div>
 					</a>
