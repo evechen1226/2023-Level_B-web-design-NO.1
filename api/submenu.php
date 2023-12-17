@@ -23,7 +23,7 @@ if (isset($_POST['add_text'])) {
     if($text!=""){
     $date = [];
     $date['text'] = $text;
-    $date['href'] = $_POST['href'][$idx];
+    $date['href'] = $_POST['add_href'][$idx];
     $date['sh'] = 1;
     $date['menu_id'] = $_POST['menu_id'];
 
