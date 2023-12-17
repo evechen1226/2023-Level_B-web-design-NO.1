@@ -22,11 +22,6 @@
 
         <?php
         } ?>
-        <tr>
-            <td><input type="text" name="text[]" id=""></td>
-            <td><input type="text" name="href[]" id=""></td>
-
-        </tr>
 
     </table>
     <div>
