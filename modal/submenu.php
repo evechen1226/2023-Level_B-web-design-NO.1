@@ -1,4 +1,4 @@
-<h3>新增次選單</h3>
+<h3>編輯次選單</h3>
 <hr>
 <form action="./api/submenu.php" method="post" enctype="multipart/form-data">
     <table class="cent">
@@ -7,13 +7,20 @@
             <td>次選單連結網址</td>
             <td>刪除</td>
         </tr>
-        <tr>
-            <td><input type="text" name="text" id=""></td>
-            <td><input type="text" name="href" id=""></td>
-            <td><input type="checkbox" name="del[]" id="">
-            </td>
-        </tr>
+        <?php
+        $subs = $menu->all(['menu_id' => $_GET['id']]);
+        foreach ($subs as $sub) { ?>
 
+            <tr>
+                <td><input type="text" name="text" value="<?=$sub['text']?>"></td>
+                <td><input type="text" name="href" value="<?=$sub['href']?>"></td>
+                <td><input type="checkbox" name="del[]" value="<?=$sub['id']?>">
+                <input type="hidden" name="id[]" value="">
+                </td>
+            </tr>
+
+        <?php
+        } ?>
     </table>
     <div>
         <input type="hidden" name="table" value="<?= $_GET['table']; ?>">
