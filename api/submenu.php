@@ -20,6 +20,7 @@ if (isset($_POST['add_text'])) {
 
 if (isset($_POST['add_text'])) {
   foreach ($_POST['add_text'] as $idx => $text) {
+    if($text!=""){
     $date = [];
     $date['text'] = $text;
     $date['href'] = $_POST['href'][$idx];
@@ -27,6 +28,7 @@ if (isset($_POST['add_text'])) {
     $date['menu_id'] = $_POST['menu_id'];
 
     $Menu->save($date);
+    }
   }
 }
 
