@@ -54,27 +54,35 @@
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+					<!-- icon 上一張 -->
+					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+					<!-- icon 上一張 end -->
 					<?php
 					$imgs = $Image->all(['sh' => 1]);
 					foreach ($imgs as $idx => $img) {
 					?>
-						<div id="ssaa<?= $idx; ?>" class="im">
-							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;">
+						<div id="ssaa<?= $idx; ?>" class="im cent">
+							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
 						</div>
 					<?php
 					};
 					?>
+					<!-- icon 下一張 -->
+					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
+					<!-- icon 下一張 end -->
 
 					<script>
 						var nowpage = 0,
-							num = 0;
+							num = <?php $Image->count(['sh' => 1]); ?>;
 
 						function pp(x) {
 							var s, t;
-							if (x == 1 && (nowpage - 1) >= 0) {
+							if (x == 1 && nowpage - 1 >= 0) {
 								nowpage--;
 							}
-							if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+							// if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+							// 用分頁的概念，頁數+1 要 小於 總頁數，才會有下一頁	
+							if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
 								nowpage++;
 							}
 							$(".im").hide()
@@ -83,7 +91,7 @@
 								$("#ssaa" + t).show()
 							}
 						}
-						pp(1)
+						pp(2)
 					</script>
 				</div>
 			</div>
