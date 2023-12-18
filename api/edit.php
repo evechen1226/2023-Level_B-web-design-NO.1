@@ -16,8 +16,8 @@ foreach ($_POST['id'] as $key => $id) {
         if (isset($row['text'])) {
             $row['text'] = $_POST['text'][$key];
         }
-
-
+// 測試輸出資料是否有誤
+// dd($table);
         switch ($table) {
             case "table":
                 $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
@@ -32,6 +32,7 @@ foreach ($_POST['id'] as $key => $id) {
                 break;
             default:
                 $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
+
         }
 
 

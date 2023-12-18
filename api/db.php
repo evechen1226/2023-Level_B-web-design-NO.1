@@ -143,6 +143,8 @@ function dd($array)
     echo "<pre>";
     print_r($array);
     echo "</pre>";
+    // 跳出程式，下方程式不執行
+    // exit();
 }
 
 function to($url){
