@@ -161,10 +161,28 @@ $News=new DB('news');
 $Admin=new DB('admin');
 $Menu=new DB('menu');
 
-if(isset($_GET['do'])){
-    $DB=${ucfirst($_GET['do'])};
-}else{
-    $DB=$Title;
+//使用下列方法時，要注意之後變數的取名不能重複
+//get_defined_vars()：將自定義的變數以陣列列出
+// $tables=array_keys(get_defined_vars());
+//
+// if(isset($_GET['do'])){
+//     $key=ucfirst($_GET['do']);
+//     if(in_array($key,$tables)){
+//         $DB=$$key;
+//     }
+// }else{
+//     $DB=$Title;
+// }
+
+if (isset($_GET['do'])) {
+    
+    if (isset(${ucfirst($_GET['do'])})) {
+        $DB = ${ucfirst($_GET['do'])};
+    }
+
+} else {
+    $DB = $Title;
 }
+
 
 ?>

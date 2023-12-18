@@ -1,5 +1,5 @@
 <?php
-switch ($_GET['tqble']) {
+switch ($_GET['table']) {
     case 'title';
         echo "<h3>更新網站標題圖片</h3>";
         break;
@@ -16,7 +16,7 @@ switch ($_GET['tqble']) {
 <form action="./api/update.php" method="post" enctype="multipart/form-data">
     <table>
         <?php
-        switch ($_GET['tqble']) {
+        switch ($_GET['table']) {
             case 'title';
                 echo " <tr>
         <td>標題區題片</td>

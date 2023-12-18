@@ -21,12 +21,12 @@
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
 
-<!-- 顯示標題圖片 php -->
-<?php
-$title=$Title->find(['sh'=>1]);
-?>
-<!-- 顯示標題圖片 php END -->
-
+	
+	<!-- 顯示標題圖片 php -->
+	<?php
+	$title=$Title->find(['sh'=>1]);
+	?>
+	<!-- 顯示標題圖片 php END -->
 	<div id="main">
 		<a title="" href="index.php">
 			<div class="ti" style="background:url('./img/<?=$title['img'];?>'); background-size:cover;"></div><!--標題-->
