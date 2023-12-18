@@ -36,29 +36,29 @@
 					foreach ($mainmu as $main) {
 					?>
 						<div class="mainmu">
-							<a href="<?= $main['href']; ?>" style="color:#000; font-size:13px; text-decoration:none;"><?=$main['text'];?></a>
-								<?php
-								// 撈出次選單
-								// $subs = $Menu->all(['sh' => $main['id']]);
-								if ($Menu->count(['menu_id' => $main['id']]) > 0) {
-									echo "<div class='mw'>";
-									$subs = $Menu->all(['menu_id' => $main['id']]);
-									foreach ($subs as $sub) {
-										echo "<a href='{$sub['href']}'>";
-										echo "<div class='mainmu2'>";
-										echo $sub['text'];
-										echo "</div>";
-										echo "</a>";
-									}
+							<a href="<?= $main['href']; ?>" style="color:#000; font-size:13px; text-decoration:none;"><?= $main['text']; ?></a>
+							<?php
+							// 撈出次選單
+							// $subs = $Menu->all(['sh' => $main['id']]);
+							if ($Menu->count(['menu_id' => $main['id']]) > 0) {
+								echo "<div class='mw'>";
+								$subs = $Menu->all(['menu_id' => $main['id']]);
+								foreach ($subs as $sub) {
+									echo "<a href='{$sub['href']}'>";
+									echo "<div class='mainmu2'>";
+									echo $sub['text'];
 									echo "</div>";
+									echo "</a>";
 								}
-								?>
+								echo "</div>";
+							}
+							?>
 						</div>
 					<?php
 					}
 					?>
 				</div>
-				
+
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 : <?= $Total->find(1)['total']; ?></span>
 				</div>
@@ -78,10 +78,21 @@
 
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
+				<?php
+				if (isset($_SESSION['login'])) { ?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('back.php')">返回管理</button>
 
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
-				
-				
+				<?php
+				} else { ?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+
+				<?php
+				}
+				?>
+
+
+
+
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 					<!-- icon 上一張 -->
