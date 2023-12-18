@@ -31,7 +31,34 @@
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+					<?php
+					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+					foreach ($mainmu as $main) {
+					?>
+						<div class="mainmu">
+							<a href="<?= $main['href']; ?>" style="color:#000; font-size:13px; text-decoration:none;"><?=$main['text'];?></a>
+								<?php
+								// 撈出次選單
+								// $subs = $Menu->all(['sh' => $main['id']]);
+								if ($Menu->count(['menu_id' => $main['id']]) > 0) {
+									echo "<div class='mw'>";
+									$subs = $Menu->all(['menu_id' => $main['id']]);
+									foreach ($subs as $sub) {
+										echo "<a href='{$sub['href']}'>";
+										echo "<div class='mainmu2'>";
+										echo $sub['text'];
+										echo "</div>";
+										echo "</a>";
+									}
+									echo "</div>";
+								}
+								?>
+						</div>
+					<?php
+					}
+					?>
 				</div>
+				
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 : <?= $Total->find(1)['total']; ?></span>
 				</div>
@@ -61,19 +88,20 @@
 					$imgs = $Image->all(['sh' => 1]);
 					foreach ($imgs as $idx => $img) {
 					?>
-						<div id="ssaa<?= $idx; ?>" class="im cent">
+						<div id="ssaa<?= $idx; ?>" class='im cent'>
 							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
 						</div>
 					<?php
-					};
+					}
 					?>
 					<!-- icon 下一張 -->
 					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
 					<!-- icon 下一張 end -->
 
 					<script>
-						var nowpage = 0,
-							num = <?php $Image->count(['sh' => 1]); ?>;
+						var nowpage = 1,
+							// php與其它程式合寫時，要在最後加 ; 避免程式段落錯誤
+							num = <?= $Image->count(['sh' => 1]); ?>;
 
 						function pp(x) {
 							var s, t;
@@ -82,7 +110,7 @@
 							}
 							// if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
 							// 用分頁的概念，頁數+1 要 小於 總頁數，才會有下一頁	
-							if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
+							if (x == 2 && (nowpage + 1) <= (num * 1) - 3) {
 								nowpage++;
 							}
 							$(".im").hide()
