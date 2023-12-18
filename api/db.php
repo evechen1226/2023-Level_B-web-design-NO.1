@@ -184,5 +184,10 @@ if (isset($_GET['do'])) {
     $DB = $Title;
 }
 
+// 增加進站人數檢查
+if(!isset($_SESSION['visited'])){
+    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
+    $_SESSION['visted']=1;
+}
 
 ?>
