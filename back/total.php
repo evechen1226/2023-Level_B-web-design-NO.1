@@ -18,10 +18,12 @@
 				</tr>
 			</tbody>
 		</table>
-		<table style="margin-top:40px; width:70%;">
+		<table style="margin-top:40px; width:100%;">
 			<tbody>
 				<tr>
-					<td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
+					<td class="cent">
+					<input type="submit" value="修改確定">
+					<input type="reset" value="重置">
 					</td>
 				</tr>
 			</tbody>
