@@ -23,7 +23,7 @@
 					<input type="hidden" name="id[]" value="<?= $row['id']; ?>">
 				</td>
 
-					<td width="7%"><input type="radio" name="sh" value="<?= $row['id']; ?>" id="">
+					<td width="7%"><input type="radio" name="sh[]" value="<?= $row['id']; ?>" id="">
 					</td>
 
 					<td width="7%"><input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
