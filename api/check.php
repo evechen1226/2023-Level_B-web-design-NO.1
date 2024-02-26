@@ -1,11 +1,12 @@
 <?php
 include_once "db.php";
-$acc = $_POST['acc'];
-$pwd =$_POST['pw'];
 
-// 使用 count()，節省流量，避免個人資料在傳輸的過程式外流。
-if($Admin->count(['acc'=>$_POST['acc'],'pw'=>$_POST['pw']])>0){
-    $_SESSION['login']=$_POST['acc'];
+//過濾表單資料，預防SQL注入
+$acc=htmlspecialchars($_POST['acc']);
+$pw=htmlspecialchars($_POST['pw']);
+
+if($Admin->count(['acc'=>$acc,'pw'=>$pw])>0){
+    $_SESSION['login']=$acc;
     to("../back.php");
 }else{
     to("../index.php?do=login&error=帳號密碼錯誤");
